@@ -3,12 +3,14 @@ import sys
 
 sys.path.append("../langdetect/")
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import confusion_matrix, classification_report
 from preprocessing_text import identity_tokenizer
+from sklearn.metrics import ConfusionMatrixDisplay
 
 
 df = pd.read_pickle("../../pkl/tokens.pkl")
@@ -35,7 +37,16 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 matrix = confusion_matrix(y_test, y_pred)
-print(matrix)
+
+fig, ax = plt.subplots(figsize=(12, 10))
+c_mat = ConfusionMatrixDisplay(matrix, display_labels=["da", "de", "en", "sv"])
+
+c_mat.plot(ax=ax, cmap=plt.cm.Blues)
+plt.savefig("../../figs/tfidf_bow_confusion_matrix.pdf")
 
 target_names = ["da", "de", "en", "sv"]
-print(classification_report(y_test, y_pred, target_names=target_names))
+report = classification_report(
+    y_test, y_pred, target_names=target_names, output_dict=True
+)
+df = pd.DataFrame(report).transpose()
+df.to_csv("../../csv/tfidf_bow_class_report.csv", index=True)
