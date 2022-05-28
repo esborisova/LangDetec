@@ -1,9 +1,10 @@
 #!/bin/bash
 
-file_names=('en'
-            'de'
-            'da'
-            'sv');
+file_names=('/en/'
+            '/de/'
+            '/da/'
+            '/sv/'
+            '/it/');
 
             
 

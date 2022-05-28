@@ -12,7 +12,6 @@ def remove_html_commands(text: str) -> str:
     Returns:
         str: A string cleaned from html tags.
     """
-
     soup = BeautifulSoup(text, features="html.parser")
 
     for script in soup(["script", "style"]):
@@ -29,13 +28,13 @@ def remove_html_commands(text: str) -> str:
 
 def clean_text(text: str) -> str:
     """
-    Cleans text from punctuation, URLs, special characters, multiple spaces and lowercases.
+    Cleans text from punctuation, URLs, ASCII charecters (except special letters, f.ex., German umlaut),
+    multiple spaces and lowercases.
     Args:
-        text (str): The string to clean.
+        text (str): The text document to clean.
     Returns:
-        str: The cleaned string.
+        str: The cleaned document.
     """
-
     no_urls = re.sub(r"http\S+", "", text)
     no_special_ch = re.sub(r"([^A-Za-zØøÅåÆæÄäÖöÜüẞß])|(\w+:\/\/\S+)", " ", no_urls)
     no_special_ch = no_special_ch.replace("\n", " ")
@@ -43,25 +42,3 @@ def clean_text(text: str) -> str:
     cleaned_text = " ".join(lowercased_str.split())
 
     return cleaned_text
-
-
-def collect_tokens(text: str, nlp) -> List[str]:
-    """Collects tokens from a text document.
-
-    Args:
-        text (str): A string to tokenize.
-        nlp: A spaCy pipeline.
-
-    Returns:
-        List[str]: List of tokens.
-    """
-    tokens = []
-    doc = nlp(text)
-    for token in doc:
-        tokens.append(token.text)
-
-    return tokens
-
-
-def identity_tokenizer(text):
-    return text

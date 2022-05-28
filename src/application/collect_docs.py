@@ -16,6 +16,7 @@ dataset = []
 
 for file in paths:
     if str(sys.argv[1]) in file:
+        lang_name = str(sys.argv[1]).replace("/", "")
         with open(file, encoding="utf-8") as f:
             text_label = {}
             data = f.readlines()
@@ -24,17 +25,13 @@ for file in paths:
             cleaned_doc = remove_html_commands(data)
             cleaned = clean_text(cleaned_doc)
             text_label["text"] = cleaned
-            text_label["language"] = str(sys.argv[1])
-    else:
-        continue
-    dataset.append(text_label)
-
-    if len(dataset) == 10000:
-        break
-
+            text_label["language"] = lang_name
+        dataset.append(text_label)
 
 data = json.dumps(dataset, ensure_ascii=False, indent=2)
-file_name = "../../json/" + str(sys.argv[1]) + ".json"
+file_name = "../../json/" + lang_name + ".json"
 
 with open(file_name, "w") as outfile:
     outfile.write(data)
+
+dataset = []
