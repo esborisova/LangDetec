@@ -1,4 +1,4 @@
-"""Functiond for processing the text documents (cleaning)"""
+"""Functions for processing the text documents (cleaning)"""
 from bs4 import BeautifulSoup
 import regex as re
 from typing import List
