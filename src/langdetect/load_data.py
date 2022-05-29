@@ -5,7 +5,7 @@ from typing import List
 
 
 def get_files(rootdir: str) -> List[str]:
-    """Collects paths to files across directories in a given rood directory.
+    """Collects paths to files across directories in a given root directory.
     Args:
         rootdir (str): The path to a root directory.
     Returns:
