@@ -10,7 +10,7 @@ The data corpus can be downloaded [here](https://www.statmt.org/europarl/).
 
 # Approach
 
-Multiclass supervised classification based on TF-IDF weighted N-character-gram text representation.
+Multiclass supervised classification based on TF-IDF weighted N-character-grams.
 
 # Train and test corpus
 
@@ -25,3 +25,6 @@ The folowing langauges were selected:
 # ML algorithm
 
 Multinomial Naive Bayes classifier.
+
+# References 
+Koehn Philipp. 2005. Europarl: A Parallel Corpus for Statistical Machine Translation. *In Proceedings of Machine Translation Summit X: Papers*. 79–86. 13–15 September. Phuket.
