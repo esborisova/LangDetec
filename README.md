@@ -1,10 +1,10 @@
 # :speaking_head: LangDetec
 
-Pipeline for training an ML classification model for document language detection. 
+Pipeline for training an ML classification model for language detection of a document. 
 
 # Dataset
 
-European Parliament Proceedings Parallel Corpus (EPPPC) 1996-2011 (Koehn 2005). 
+European Parliament Proceedings Parallel Corpus 1996-2011 (Koehn 2005). 
 
 The data corpus can be downloaded [here](https://www.statmt.org/europarl/).
 
