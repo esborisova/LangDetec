@@ -1,4 +1,4 @@
-# LangDetec
+# LangDetec :speaking_head:
 
 Pipeline for training an ML classification model for document language detection. 
 
