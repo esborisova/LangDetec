@@ -17,9 +17,13 @@ Multiclass supervised classification based on TF-IDF weighted N-character-grams.
 The folowing langauges were selected:
 
 :uk: English ('en')
+
 :denmark: Danish ('da')
+
 :de: German ('de')
+
 :sweden: Swedish ('sv')
+
 :it: Italian ('it'). 
 
 # ML algorithm
