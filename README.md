@@ -14,7 +14,7 @@ Multiclass supervised classification based on TF-IDF weighted N-character-grams.
 
 # Train and test corpus
 
-The folowing langauges were selected:
+The folowing languages were selected:
 
 :uk: English ('en')
 
